@@ -227,10 +227,12 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class PackageRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
-
+        print("got request")
         content_length = int(self.headers["Content-Length"])
 
         json_query = self.rfile.read(content_length).decode()
+        
+        print("handling request")
 
         try:
             response = handle_request(json_query)
@@ -242,8 +244,6 @@ class PackageRequestHandler(BaseHTTPRequestHandler):
 
             print(info_text)
         else:
-            print("handling request")
-
             if response == None:
                 info_text = "405: invalid input -> articles too big for packages"
                 
