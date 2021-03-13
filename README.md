@@ -23,4 +23,8 @@ docker build -t hackathon-example .
 docker run -v $(pwd):/app -p 8080:80 -it hackathon-example
 ```
 
-If you now access http://127.0.0.1:8080/ you should see the thing you want to review.
+To use the algorithm
+
+```
+curl --request POST --data '{"packagecurl --request POST --data '{"package_types":[{"dimensions":[10,20,15],"cost":10},{"dimensions":[10,10,10],"cost":5}],"articles":[[10,10,5],[5,5,5],[9,4,5],[10,20,10],[10,10,10]]}' http://localhost/
+```
