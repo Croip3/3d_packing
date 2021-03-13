@@ -18,6 +18,6 @@ docker run -p 3000:3000 packing
 How to use the algorithm
 
 ```bash
-curl --request POST --data '{"packagecurl --request POST --data '{"package_types":[{"dimensions":[10,20,15],"cost":10},{"dimensions":[10,10,10],"cost":5}],"articles":[[10,10,5],[5,5,5],[9,4,5],[10,20,10],[10,10,10]]}' http://localhost/
+curl --request POST --data '{"packagecurl --request POST --data '{"package_types":[{"dimensions":[10,20,15],"cost":10},{"dimensions":[10,10,10],"cost":5}],"articles":[[10,10,5],[5,5,5],[9,4,5],[10,20,10],[10,10,10]]}' http://localhost:3000/
 
 ```
