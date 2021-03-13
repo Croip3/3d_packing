@@ -11,6 +11,12 @@ My participant ID in the challenge was: CC-VOL1-9, CC-Vol1-22
 You can get a running version of this code by using:
 
 ```bash
+git clone https://github.com/Croip3/3d_packing.git
+cd 3d_packing
+docker build -t packing .
+```
+
+```bash
 git clone https://github.com/LukasKaufmannRelaxdays/hackathon-example-submission.git
 cd hackathon-example-submission
 docker build -t hackathon-example .
