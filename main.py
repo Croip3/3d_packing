@@ -198,6 +198,8 @@ def handle_request(json_input):
     global solutions
 
     articles, package_types = parse_from_json_input(json_input)
+    
+    print(f"got {len(articles)} articles and {len(package_types)} package types.")
 
     #Überprüfen ob die Pakete groß genug für alle Artikel sind
     for a in articles:
