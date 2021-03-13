@@ -1,0 +1,86 @@
+swagger: "2.0"
+info:
+  description: "This is an api for finding the best packaging solution for given articles with given sizes."
+  version: "1.0.0"
+  title: "Packaging Api"
+  contact:
+    email: "ossitech@googlemail.com"
+schemes:
+- "http"
+paths:
+  /:
+    post:
+      tags:
+      - "/"
+      summary: "Returnes optimal packaging"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Information about the package types and articles"
+        required: true
+        schema:
+          $ref: "#/definitions/Input"
+      responses:
+        "400":
+          description: "malformed request: bad json object"
+        "405":
+          description: "invalid input: articles too big for packages"
+        "200":
+          description: "OK"
+definitions:
+  Input:
+    type: "object"
+    required:
+    - "package_types"
+    - "articles"
+    properties:
+      package_types:
+        type: "array"
+        items:
+          type: "object"
+          required:
+          - "dimensions"
+          - "cost"
+          properties:
+            dimensions:
+              type: "array"
+              items:
+                type: "integer"
+              minItems: 3
+              maxItems: 3
+            cost:
+              type: "integer"
+          example:
+            dimensions: [10, 20, 15]
+            cost: 10
+      articles:
+        type: "array"
+        items:
+          type: "array"
+          items:
+            type: "integer"
+          minItems: 3
+          maxItems: 3
+          example: [5, 5, 5]
+  Output:
+    type: "object"
+    properties:
+      used_packages:
+        type: "array"
+        items:
+          type: "integer"
+      articles:
+        type: "array"
+        items:
+          type: "array"
+          items:
+            type: "integer"
+          minItems: 4
+          maxItems: 4
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
